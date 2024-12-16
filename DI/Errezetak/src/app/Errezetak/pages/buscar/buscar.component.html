@@ -1,0 +1,21 @@
+<form class="example-form">
+  <div>
+	<h1>Buscador de Errezetak</h1>
+  </div>
+  <mat-form-field class="example-full-width">
+	<mat-label>Empieza a buscar</mat-label>
+	<input type="text" placeholder="Elige uno" matInput [(ngModel)]="termino" name="termino"
+  	[matAutocomplete]="auto" (input)="buscar()">
+	<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="optionSelected($event.option.value)">
+  	<mat-option *ngFor="let errezeta of errezetaFiltrados" [value]="errezeta">
+    	{{errezeta?.deskribapena}}
+  	</mat-option>
+	</mat-autocomplete>
+  </mat-form-field>
+</form>
+<div *ngIf="errezeta">
+  <app-errezeta-tarjeta [Errezeta]="errezeta"></app-errezeta-tarjeta>
+</div>
+<div *ngIf="termino && errezetaFiltrados.length === 0">
+  <h1>No se encontraron resultados</h1>
+</div>

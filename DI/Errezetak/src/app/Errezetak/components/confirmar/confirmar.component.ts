@@ -1,0 +1,22 @@
+import { Component, Inject, inject } from '@angular/core';
+import { MatButton } from '@angular/material/button';
+import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { Errezeta } from '../../Interface/IErrezetak';
+
+@Component({
+  selector: 'app-confirmar',
+  imports: [MatButton, MatDialogModule],
+  templateUrl: './confirmar.component.html',
+  styleUrl: './confirmar.component.css'
+})
+export class ConfirmarComponent {
+  constructor(private dialogRef: MatDialogRef<ConfirmarComponent>, @Inject(MAT_DIALOG_DATA) public data: Errezeta) { }
+
+  borrar(){
+	this.dialogRef.close(true);
+  }
+  cerrar(){
+	this.dialogRef.close();
+  }
+
+}

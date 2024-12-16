@@ -1,0 +1,21 @@
+div{
+  background-color: aqua;
+  }
+
+  img{
+  width: 500px;
+  height: 600px;
+  }
+
+  mat-card{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0%;
+  }
+  body{
+    margin: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }

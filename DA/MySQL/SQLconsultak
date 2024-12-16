@@ -1,0 +1,50 @@
+DELIMITER //
+create procedure departamentuakLortu()
+begin
+select *
+from departamentos;
+end;
+
+create procedure lortuDepartamentua()
+begin
+select emp_no,oficio,salario
+from empleados
+where dept_no = 10;
+end;
+
+create procedure lortuEmpleatua()
+begin 
+select *
+ from empleados 
+ where salario = (select max(salario) from empleados);
+ end
+
+//
+
+
+DELIMITER //
+create procedure eliminar_dept_marketing()
+begin 
+delete 
+from empleados
+where dept_no = 50;
+delete 
+from departamentos
+where dept_no = 50; 
+end;
+
+create procedure añadir_dept_marketing()
+begin 
+insert into departamentos value (50, "MARKETING", "Valencia");
+insert into empleados values
+(8000,'PEREZ','ANALISTA',null,'2024-01-01',3200,0,50),
+(8001,'LOPEZ','EMPLEADO',8000,'2024-01-15',1500,200,50);
+end;
+
+create procedure actualizar_salarios_marketing(IN salario_nuevo FLOAT)
+begin 
+update empleados
+set salario = salario_nuevo
+where dept_no = 50;
+end;
+//

@@ -1,0 +1,63 @@
+<h1>
+	{{ (getheroe().id) ? 'Editar' : 'Nuevo' }}
+	Heroe
+	<small>{{getheroe().superhero}}</small>
+</h1>
+
+
+<div class="grid">
+	<div class="col-12 sm:col-6">
+    	<mat-card>
+        	<mat-card-content>
+            	<div class="grid">
+                	<mat-form-field class="col-12 sm:col-6">
+                    	<mat-label>Super Heroe</mat-label>
+                    	<input matInput type="text" required [(ngModel)]="getheroe().superhero">
+                	</mat-form-field>
+                	<mat-form-field class="col-12 sm:col-6">
+                    	<mat-label>Alter Ego</mat-label>
+                    	<input matInput type="text" required [(ngModel)]="getheroe().alter_ego">
+                	</mat-form-field>
+                	<mat-form-field class="col-12">
+                    	<mat-label>Primera Aparicion</mat-label>
+                    	<input matInput type="text" required [(ngModel)]="getheroe().first_appearance">
+                	</mat-form-field>
+                	<mat-form-field class="col-12">
+                    	<mat-label>Personajes</mat-label>
+                    	<input matInput type="text" required [(ngModel)]="getheroe().characters">
+                	</mat-form-field>
+                	<mat-form-field class="col-12">
+                    	<mat-label>Creador</mat-label>
+                      <mat-select required [(ngModel)]="getheroe().publisher">
+                        <mat-option *ngFor="let publisher of publishers" [value]="publisher">
+                            {{publisher}}
+                        </mat-option>
+                    </mat-select>
+
+                	</mat-form-field>
+                	<mat-form-field class="col-12">
+                    	<mat-label>Foto Url</mat-label>
+                    	<input matInput type="url" required [(ngModel)]="getheroe().alt_img">
+                	</mat-form-field>
+            	</div>
+            	<div class="flex justify-content-between">
+                	<button mat-raised-button color="primary" (click)="guardar()">
+                    	<mat-icon>edit</mat-icon>
+                    	{{ (getheroe().id) ? 'Actualizar' : 'Guardar' }}
+                	</button>
+                	<button *ngIf="heroe.id" mat-raised-button color="warn" (click)="borrarHeroe()">
+                    	<mat-icon>remove</mat-icon>
+                    	Borrar
+                	</button>
+            	</div>
+        	</mat-card-content>
+    	</mat-card>
+	</div>
+	<div class="col-12 sm:col-6">
+    	<mat-card>
+        	<img [src]="heroe | imagen" mat-card-image>
+    	</mat-card>
+	</div>
+</div>
+
+
