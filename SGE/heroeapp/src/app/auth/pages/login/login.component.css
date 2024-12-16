@@ -1,0 +1,13 @@
+/* Ensure the grid list does not occupy more than the screen height */
+mat-grid-list {
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+button {
+  width: 100%;
+  max-width: 300px;
+}

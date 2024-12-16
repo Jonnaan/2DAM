@@ -1,0 +1,42 @@
+mat-card{
+	margin-top:20px;
+	max-height: 850px;
+	min-height: 650px;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+mat-divider {
+  margin: 20px 0;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.grid .col-12 {
+  flex: 1 1 100%;
+}
+
+.grid .sm\:col-4 {
+  flex: 1 1 33.33%;
+}
+
+.grid .md\:col-3 {
+  flex: 1 1 25%;
+}
+
+.grid .xl\:col-2 {
+  flex: 1 1 16.66%;
+}
+
+
+
